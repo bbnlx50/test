@@ -101,14 +101,12 @@ while True:
     for symbol in tokens:
         for tf in timeframes:
             try:
-
-		print(f"Scanning {symbol} {tf}")
-                ohlcv = exchange.fetch_ohlcv(symbol, timeframe=tf, limit=100)
-                df = pd.DataFrame(ohlcv, columns=['timestamp','open','high','low','close','volume'])
-                df = calculate_signals(df)
-
-                last_row = df.iloc[-1]
-		send_telegram(f"{symbol} {tf} trend = {last_row['trend']}")
+				print(f"Scanning {symbol} {tf}")
+				ohlcv = exchange.fetch_ohlcv(symbol, timeframe=tf, limit=100)
+				df = pd.DataFrame(ohlcv, columns=['timestamp','open','high','low','close','volume'])
+				df = calculate_signals(df)
+				last_row = df.iloc[-1]
+				send_telegram(f"{symbol} {tf} trend = {last_row['trend']}")
 
 
                 # Send Telegram messages only for signals
@@ -130,6 +128,7 @@ while True:
 
     # Wait before next full cycle (e.g., 5 minutes)
     time.sleep(300)
+
 
 
 
