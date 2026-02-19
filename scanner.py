@@ -109,7 +109,7 @@ while True:
                 )
                 df = calculate_signals(df)
                 last_row = df.iloc[-1]
-                send_telegram(f"{symbol} {tf} trend = {last_row['trend']}")
+                send_telegram(f"{symbol} {tf} close={last_row['close']} zlema={last_row['zlema']} trend={last_row['trend']}")
 
             except Exception as e:
                 print(f"Error with {symbol} {tf}: {e}")
@@ -133,6 +133,7 @@ while True:
 
     # Wait before next full cycle (e.g., 5 minutes)
     time.sleep(300)
+
 
 
 
