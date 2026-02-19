@@ -1,0 +1,16 @@
+# fly.toml app configuration file generated for zerolagpro on 2026-02-19T06:43:15Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'zerolagpro'
+primary_region = 'fra'
+
+[build]
+
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 256
